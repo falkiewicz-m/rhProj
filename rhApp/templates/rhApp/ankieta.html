@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html>
+<head>
+	<title>Ankieta</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="{% static 'main.css' %}"/>
+
+</head>
+<body class="is-loading">
+<div id="wrapper" class="fade-in">
+	<!--tytuł strony pojawiający się-->
+	<div id="intro">
+		<h1>Ankieta</h1>
+		<p>Społeczne postrzeganie chorób psychicznych</p>
+	</div>
+	<!--pasek nawigacji-->
+	<nav id="nav">
+		<ul class="links">
+			<li><a href="http://falkiewiczm.pythonanywhere.com/mainpage">Strona główna</a></li>
+			<li class="active"><a href="http://falkiewiczm.pythonanywhere.com/ankieta">Ankieta</a></li>
+			<li><a href="http://falkiewiczm.pythonanywhere.com/wyniki">Wyniki</a></li>
+		</ul>
+	</nav>
+
+	<!-- Main -->
+		<div id="main">
+			<!-- Post -->
+			<section class="post">
+				<header class="major">
+					<h1>Ankieta</h1>
+					<p>Przed Tobą 20 pytań. Pamiętaj, że ankieta jest całkowicie anonimowa,
+					a Twoje odpowiedzi nie będą przez nikogo oceniane. Prosiłbym o szczere odpowiedzi, pierwsze które Ci przyjdą do głowy. </p>
+				</header>
+				<p>
+				<form method="POST">
+				    {% csrf_token %}
+
+
+				   <h2>{{ form1.answers_1.label }}</h2>
+           <p>{{ form1.answers_1 }}</p>
+           <h2>{{ form1.answers_2.label }}</h2>
+           <p>{{ form1.answers_2 }}</p>
+           <h2>{{ form1.answers_3.label }}</h2>
+           <p>{{ form1.answers_3 }}</p>
+           <h2>{{ form1.answers_4.label }}</h2>
+           <p>{{ form1.answers_4 }}</p>
+           <h2>{{ form1.answers_5.label }}</h2>
+           <p>{{ form1.answers_5 }}</p>
+           <h2>{{ form1.answers_6.label }}</h2>
+           <p>{{ form1.answers_6 }}</p>
+           <h2>{{ form1.answers_7.label }}</h2>
+           <p>{{ form1.answers_7 }}</p>
+           <h2>{{ form1.answers_8.label }}</h2>
+           <p>{{ form1.answers_8 }}</p>
+           <h2>{{ form1.answers_9.label }}</h2>
+           <p>{{ form1.answers_9 }}</p>
+           <h2>{{ form1.answers_10.label }}</h2>
+           <p>{{ form1.answers_10 }}</p>
+           <h2>{{ form1.answers_11.label }}</h2>
+           <p>{{ form1.answers_11 }}</p>
+           <h2>{{ form1.answers_12.label }}</h2>
+           <p>{{ form1.answers_12 }}</p>
+           <h2>{{ form1.answers_13.label }}</h2>
+           <p>{{ form1.answers_13 }}</p>
+           <h2>{{ form1.answers_14.label }}</h2>
+           <p>{{ form1.answers_14 }}</p>
+           <h2>{{ form1.answers_15.label }}</h2>
+           <p>{{ form1.answers_15 }}</p>
+           <h2>{{ form1.answers_16.label }}</h2>
+           <p>{{ form1.answers_16 }}</p>
+           <h2>{{ form1.answers_17.label }}</h2>
+           <p>{{ form1.answers_17 }}</p>
+           <h2>{{ form1.answers_18.label }}</h2>
+           <p>{{ form1.answers_18 }}</p>
+           <h2>{{ form1.answers_19.label }}</h2>
+           <p>{{ form1.answers_19 }}</p>
+           <h2>{{ form1.answers_20.label }}</h2>
+           <p>{{ form1.answers_20 }}</p>
+
+
+
+
+
+
+
+
+                    {{ message}}
+				<ul class="actions">
+					<li><input type="submit" value="Prześlij odpowiedzi" class="button"/></li>
+				</ul>
+				</form>
+
+
+
+				</p>
+			</section>
+
+		</div>
+				<!-- stopka -->
+				<div id="footer">
+					<ul>
+						<li><a href="mailto:s155256@student.pg.edu.pl">Michał Falkiewicz</a></li>
+						<li><a href="https://eti.pg.edu.pl/katedra-inzynierii-biomedycznej">Inżynieria Biomedyczna</a></li>
+
+					</ul>
+				</div>
+
+			</div>
+		<!--Skrypty-->
+
+		<!--jQuery z googleapi-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<!--biblioteki jQuery do scrollowania-->
+		<script src="{% static 'jquery.scrolly.min.js' %}"></script>
+		<!--framework skel-->
+		<script src="{% static 'skel.min.js' %}"></script>
+		<!--JavaScript-->
+		<script src="{% static 'main.js' %}"></script>
+	</body>
+</html>
