@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html>
+<head>
+	<title>Ankieta</title>
+	<meta charset="utf-8"/>
+  <link rel="stylesheet" href="{% static 'main.css' %}"/>
+
+</head>
+<body class="is-loading">
+<div id="wrapper" class="fade-in">
+	<!--tytuł strony pojawiający się-->
+	<div id="intro">
+		<h1>Ankieta</h1>
+		<p>Społeczne postrzeganie chorób psychicznych</p>
+	</div>
+	<!--pasek nawigacji-->
+	<nav id="nav">
+		<ul class="links">
+			<li><a href="/mainpage">Strona główna</a></li>
+			<li><a href="/ankieta">Ankieta</a></li>
+			<li class="active"><a href="/wyniki">Wyniki</a></li>
+		</ul>
+	</nav>
+
+	<!-- Main -->
+	<div id="main">
+		<!-- Post -->
+		<section class="post">
+			<header class="major">
+				<h1>Wyniki ankiety</h1>
+				<p>Obecnie trwa etap zbierania odpowiedzi przez respondentów. <br/>
+				Przewidywany dzień uruchomienia modułu Wyniki: 04.06.2018r.</p>
+			</header>
+		</section>
+
+	</div>
+	<!-- stopka -->
+	<div id="footer">
+		<ul>
+			<li><a href="mailto:s155256@student.pg.edu.pl">Michał Falkiewicz</a></li>
+			<li><a href="https://eti.pg.edu.pl/katedra-inzynierii-biomedycznej">Inżynieria Biomedyczna</a></li>
+
+		</ul>
+	</div>
+
+</div>
+<!--Skrypty-->
+<!--jQuery z googleapi-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<!--biblioteki jQuery do scrollowania-->
+<script src="{% static 'jquery.scrolly.min.js' %}"></script>
+<!--framework skel-->
+<script src="{% static 'skel.min.js' %}"></script>
+<!--JavaScript-->
+<script src="{% static 'main.js' %}"></script>
+</body>
+</html>

@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from rhApp.views import survey
+from rhApp.views import survey, indexpage, resultsOfSurvey
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('ankieta/', survey),
+    path('mainpage/', indexpage),
+    path('wyniki/', resultsOfSurvey),
 ]

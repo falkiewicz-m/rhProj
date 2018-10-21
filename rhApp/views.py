@@ -11,36 +11,26 @@ def survey(request):
         form1 = rhSurvey1(request.POST)
         # form2 = rhSurvey2(request.POST)
         if form1.is_valid():
-
-
-
-
-            message = 'All looks fine now'
-
-
             for fnum, item in enumerate(form1.fields, start=1):
-
                 str_a = 'answers_' + str(fnum)
                 choice_str_a = form1.cleaned_data[str_a]
                 g = ChoiceM.objects.get(question_fk = fnum, choice_text = choice_str_a)
                 g.numberOfVotes += 1
                 g.save()
-
-
-
-
-
-            return render(request, 'rhApp/ankieta.html', {'form1': form1, 'message' : message })
+            return render(request, 'rhApp/dziekuje.html', {'form1': form1 })
 
     elif request.method == 'GET':
-        message = 'it was get you know'
-
         form1 = rhSurvey1()
-        # form2 = rhSurvey2()
-        return render(request, 'rhApp/ankieta.html', {'form1': form1, 'message' : message })
+        return render(request, 'rhApp/ankieta.html', {'form1': form1 })
 
 def excludeCSRF(dict, csrft):
     return {k:v for k,v in dict if k not in csfrt}
+
+def indexpage(request):
+    return render(request, 'rhApp/index.html')
+
+def resultsOfSurvey(request):
+    return render(request, 'rhApp/wyniki.html')
 # def save(self, commit=True):
 #     instance = super(rhSurvey1, self).save(commit=False)
 #
