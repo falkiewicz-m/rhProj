@@ -30,7 +30,11 @@ def indexpage(request):
     return render(request, 'rhApp/index.html')
 
 def resultsOfSurvey(request):
-    return render(request, 'rhApp/wyniki.html')
+    choicelist = ChoiceM.objects.all()
+    questionlist = QuestionM.objects.all()
+    c_list = list(choicelist)
+    q_list = list(questionlist)
+    return render(request, 'rhApp/wyniki.html', {'c_list': c_list, 'q_list': q_list})
 # def save(self, commit=True):
 #     instance = super(rhSurvey1, self).save(commit=False)
 #
