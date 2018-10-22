@@ -1,11 +1,19 @@
 <!DOCTYPE HTML>
 {% load static %}
+<!--Highcharts-->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/js/themes/grid-light.js"></script>
 <html>
 <head>
 	<title>Ankieta</title>
 	<meta charset="utf-8"/>
   <link rel="stylesheet" href="{% static 'main.css' %}"/>
-
+	<style type="text/css">
+@import 'https://code.highcharts.com/css/grid-light.css';
+</style>
 </head>
 <body class="is-loading">
 <div id="wrapper" class="fade-in">
@@ -31,7 +39,106 @@
 				<h1>Wyniki ankiety</h1>
 				<p>Obecnie trwa etap zbierania odpowiedzi przez respondentów. <br/>
 				Przewidywany dzień uruchomienia modułu Wyniki: 04.06.2018r.</p>
+
 			</header>
+			<div id="charts1">
+				<script type="text/javascript">
+
+		var chart = Highcharts.chart('charts1', {
+
+				title: {
+						text: 'Podział płci badanych: '
+				},
+
+				series: [{
+						name: 'Płeć ',
+						type: 'pie',
+						tooltip: {
+			 									headerFormat: '{series.name}:<br/>',
+			 									pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b> ankietowanych<br/>'
+	 					},
+						allowPointSelect: true,
+						colors:['#7cb5ec', '#f7a35c', '#90ee7e', '#7798BF', '#aaeeee', '#ff0066', '#eeaaee', '#55BF3B', '#DF5353', '#7798BF', '#aaeeee'],
+
+
+						data: [
+								{
+									name: '{{ c_list.0.choice_text }}',
+									y: {{ c_list.0.numberOfVotes }},
+									selected: false
+								},
+								{
+									name: '{{ c_list.1.choice_text }}',
+									y: {{ c_list.1.numberOfVotes }},
+									selected: false
+								}
+							],
+
+						showInLegend: true
+				}]
+		});
+			</script>
+			</div>
+			<div id="charts2">
+
+			<script type="text/javascript">
+
+	var chart = Highcharts.chart('charts2', {
+
+			title: {
+					text: 'Podział badanych ze względu na wiek: '
+			},
+
+			series: [{
+					name: 'Wiek ',
+					type: 'pie',
+					tooltip: {
+											headerFormat: '{series.name}:<br/>',
+											pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b> ankietowanych<br/>'
+					},
+					allowPointSelect: true,
+					colors:['#7cb5ec', '#f7a35c', '#90ee7e', '#7798BF', '#aaeeee', '#ff0066', '#eeaaee', '#55BF3B', '#DF5353', '#7798BF', '#aaeeee'],
+					data: [
+							['{{ c_list.2.choice_text }}', {{ c_list.2.numberOfVotes }}, false],
+							['{{ c_list.3.choice_text }}', {{ c_list.3.numberOfVotes }}, false],
+							['{{ c_list.4.choice_text }}', {{ c_list.4.numberOfVotes }}, false],
+							['{{ c_list.5.choice_text }}', {{ c_list.5.numberOfVotes }}, false]
+					],
+					showInLegend: true
+			}]
+	});
+			</script>
+			</div>
+			<div id="charts3">
+
+			<script type="text/javascript">
+
+	var chart = Highcharts.chart('charts3', {
+
+			title: {
+					text: 'Podział badanych ze względu na zatrudnienie: '
+			},
+
+			series: [{
+					name: 'Zatrudnienie',
+					type: 'pie',
+					tooltip: {
+											headerFormat: '{series.name}:<br/>',
+											pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b> ankietowanych<br/>'
+					},
+					allowPointSelect: true,
+					colors:['#7cb5ec', '#f7a35c', '#90ee7e', '#7798BF', '#aaeeee', '#ff0066', '#eeaaee', '#55BF3B', '#DF5353', '#7798BF', '#aaeeee'],
+					data: [
+							['{{ c_list.8.choice_text }}', {{ c_list.8.numberOfVotes }}, false],
+							['{{ c_list.9.choice_text }}', {{ c_list.9.numberOfVotes }}, false],
+							['{{ c_list.10.choice_text }}', {{ c_list.10.numberOfVotes }}, false],
+							['{{ c_list.11.choice_text }}', {{ c_list.11.numberOfVotes }}, false]
+					],
+					showInLegend: true
+			}]
+	});
+			</script>
+			</div>
 		</section>
 
 	</div>
@@ -46,6 +153,7 @@
 
 </div>
 <!--Skrypty-->
+
 <!--jQuery z googleapi-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <!--biblioteki jQuery do scrollowania-->
