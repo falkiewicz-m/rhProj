@@ -1,5 +1,5 @@
 from django import forms
-from .models import QuestionM, ChoiceM
+from .models import QuestionM, ChoiceM, Current_answer
 
 class rhSurvey1(forms.Form):
     answers_1 = forms.ChoiceField(widget=forms.RadioSelect, choices=[], required=True)

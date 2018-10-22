@@ -116,6 +116,35 @@
 	var chart = Highcharts.chart('charts3', {
 
 			title: {
+					text: 'Podział badanych ze względu na wykształcenie: '
+			},
+
+			series: [{
+					name: 'Wykształcenie',
+					type: 'pie',
+					tooltip: {
+											headerFormat: '{series.name}:<br/>',
+											pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b> ankietowanych<br/>'
+					},
+					allowPointSelect: true,
+					data: [
+							['{{ c_list.8.choice_text }}', {{ c_list.8.numberOfVotes }}, false],
+							['{{ c_list.9.choice_text }}', {{ c_list.9.numberOfVotes }}, false],
+							['{{ c_list.10.choice_text }}', {{ c_list.10.numberOfVotes }}, false],
+							['{{ c_list.11.choice_text }}', {{ c_list.11.numberOfVotes }}, false]
+					],
+					showInLegend: true
+			}]
+	});
+			</script>
+			</div>
+			<div id="charts4">
+
+			<script type="text/javascript">
+
+	var chart = Highcharts.chart('charts4', {
+
+			title: {
 					text: 'Podział badanych ze względu na zatrudnienie: '
 			},
 
@@ -129,10 +158,79 @@
 					allowPointSelect: true,
 					colors:['#7cb5ec', '#f7a35c', '#90ee7e', '#7798BF', '#aaeeee', '#ff0066', '#eeaaee', '#55BF3B', '#DF5353', '#7798BF', '#aaeeee'],
 					data: [
-							['{{ c_list.8.choice_text }}', {{ c_list.8.numberOfVotes }}, false],
-							['{{ c_list.9.choice_text }}', {{ c_list.9.numberOfVotes }}, false],
-							['{{ c_list.10.choice_text }}', {{ c_list.10.numberOfVotes }}, false],
-							['{{ c_list.11.choice_text }}', {{ c_list.11.numberOfVotes }}, false]
+							['{{ c_list.12.choice_text }}', {{ c_list.12.numberOfVotes }}, false],
+							['{{ c_list.13.choice_text }}', {{ c_list.13.numberOfVotes }}, false],
+							['{{ c_list.14.choice_text }}', {{ c_list.14.numberOfVotes }}, false],
+							['{{ c_list.15.choice_text }}', {{ c_list.15.numberOfVotes }}, false]
+					],
+					showInLegend: true
+			}]
+	});
+			</script>
+			</div>
+			<div id="charts5">
+
+			<script type="text/javascript">
+
+	var chart = Highcharts.chart('charts5', {
+
+			title: {
+					text: 'Procent osób, które przyznałyby się znajomym/rodzinie do bycia u psychologa bądź psychiatry: '
+			},
+			xAxis: {
+				categories: ['U psychologa/tak', 'U psychologa/nie', 'U psychiatry/tak', 'U psychiatry/nie'],
+				crosshair: true
+			},
+			yAxis: {
+				title: {
+					text: 'Procent ankietowanych: [%]'
+				}
+			},
+			tooltip: {
+				formatter: function () {
+			return this.series.xAxis.categories[this.point.x] + '<br><b>' + [this.point.y] + '%</b> ankietowanych';}
+
+			},
+			series: [{
+					name: 'Byłem/przyznam się',
+					type: 'column',
+
+					allowPointSelect: true,
+					data: [
+							['{{ c_list.25.choice_text }}', {{ c_list.25.numberOfVotes }}/({{ c_list.24.numberOfVotes }}+{{ c_list.25.numberOfVotes }})*100, false],
+							['{{ c_list.24.choice_text }}', {{ c_list.24.numberOfVotes }}/({{ c_list.24.numberOfVotes }}+{{ c_list.25.numberOfVotes }})*100, false],
+							['{{ c_list.27.choice_text }}', {{ c_list.27.numberOfVotes }}/({{ c_list.26.numberOfVotes }}+{{ c_list.27.numberOfVotes }})*100, false],
+							['{{ c_list.26.choice_text }}', {{ c_list.26.numberOfVotes }}/({{ c_list.26.numberOfVotes }}+{{ c_list.27.numberOfVotes }})*100, false]
+					],
+					showInLegend: false
+			}]
+	});
+			</script>
+			</div>
+			<div id="charts6">
+
+			<script type="text/javascript">
+
+	var chart = Highcharts.chart('charts6', {
+
+			title: {
+					text: 'Procent ankietowanych, którzy zmagali się z chorobami psychicznymi: '
+			},
+
+			series: [{
+					name: 'Wiek ',
+					type: 'pie',
+					tooltip: {
+											headerFormat: '{series.name}:<br/>',
+											pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b> ankietowanych<br/>'
+					},
+					allowPointSelect: true,
+					colors:['#7cb5ec', '#f7a35c', '#90ee7e', '#7798BF', '#aaeeee', '#ff0066', '#eeaaee', '#55BF3B', '#DF5353', '#7798BF', '#aaeeee'],
+					data: [
+							['{{ c_list.2.choice_text }}', {{ c_list.2.numberOfVotes }}, false],
+							['{{ c_list.3.choice_text }}', {{ c_list.3.numberOfVotes }}, false],
+							['{{ c_list.4.choice_text }}', {{ c_list.4.numberOfVotes }}, false],
+							['{{ c_list.5.choice_text }}', {{ c_list.5.numberOfVotes }}, false]
 					],
 					showInLegend: true
 			}]
